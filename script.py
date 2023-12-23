@@ -1,6 +1,7 @@
 # Program to send bulk messages through WhatsApp web from an excel sheet without saving contact numbers
 # Author @inforkgodara
 
+import undetected_chromedriver as uc
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -13,7 +14,8 @@ excel_data = pandas.read_excel('Recipients data.xlsx', sheet_name='Recipients')
 
 count = 0
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+#driver = webdriver.Chrome(ChromeDriverManager().install())
+driver = uc.Chrome()
 driver.get('https://web.whatsapp.com')
 input("Press ENTER after login into Whatsapp Web and your chats are visiable.")
 for column in excel_data['Contact'].tolist():
